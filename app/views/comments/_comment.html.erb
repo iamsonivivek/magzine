@@ -1,0 +1,16 @@
+<tr id="comment_<%= comment.id %>" class="comment" >
+	<td>
+		<%= comment.body %>
+	</td>
+</tr>
+<tr>
+	<td id="replies_<%= comment.id %>">
+		<%= render "comments/replies",:comment=>comment %>
+	</td>
+</tr>
+
+<script type="text/javascript">
+	$(".reply").click(function(){
+		$(this).parents(".reply-block").find(".reply-form").toggle();
+	})
+</script>

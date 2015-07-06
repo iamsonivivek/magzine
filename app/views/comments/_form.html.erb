@@ -1,0 +1,9 @@
+<%= form_for(@comment, :remote=>true) do |f| %>
+  <div class="field">
+    <%= f.text_area :body, :placeholder=> "Put your comment here..", :id=> "comment_content", :required=>true %>
+  </div>
+  <%= f.hidden_field :article_id, :value=> @article.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

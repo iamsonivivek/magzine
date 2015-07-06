@@ -1,0 +1,7 @@
+<% if @comment.parent_id.nil? %>
+	$('.comments').append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
+	$("#comment_content").val("");
+<% else %>
+	$("#replies_<%= @comment.parent_id %>").html("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
+	$(".reply-body").val("");
+<% end %>
