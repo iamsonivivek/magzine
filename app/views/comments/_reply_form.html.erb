@@ -1,10 +1,12 @@
+</br>
 <%= form_for(Comment.new, :remote=>true) do |f| %>
   <div class="field">
-    <%= f.text_area :body, :placeholder=> "Reply here..", :class=> "reply-body", :required=>true %>
+    <%= f.text_area :body, :placeholder=> "Reply here..", :class=> "reply-body form-control", :required=>true ,:rows=>"1"%>
   </div>
   <%= f.hidden_field :article_id, :value=> comment.article_id %>
   <%= f.hidden_field :parent_id, :value=> comment.id %>
+  </br>
   <div class="actions">
-    <%= f.submit("Create Reply") %>
+    <%= f.submit("Create Reply",:class=>"btn btn-primary") %>
   </div>
 <% end %>

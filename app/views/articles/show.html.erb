@@ -1,20 +1,15 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="article">
+	<h3><%= @article.title %> </h3>
+	<p>
+  		<%= @article.body %>
+	</p>
+	<h4><%= @article.user.full_name %> </h4>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.user.full_name %>
-</p>
 
 <!-- create and listing comments here. -->
-<table class="comments">
+<table class="comments table table-striped table-hover">
 	<% @comments.each do |comment| %>
 		<%= render "comments/comment", :comment => comment %>
 	<% end %>
@@ -22,5 +17,11 @@
 <%= render "comments/form"%>
 <!-- end -->
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<%#= link_to 'Edit', edit_article_path(@article) %> 
 <%= link_to 'Back', articles_path %>
+
+<script type="text/javascript">
+	$(".reply").click(function(){
+		$(this).parents(".reply-block").find(".reply-form").toggle();
+	})
+</script>

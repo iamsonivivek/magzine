@@ -1,16 +1,14 @@
 <tr id="comment_<%= comment.id %>" class="comment" >
 	<td>
-		<%= comment.body %>
+		<strong><a href="#-"><%= comment.user.full_name %></a>&nbsp;<%= comment.body %></strong>
+	</td>
+	<td class="delete">
+		<% if !comment.children.present? && current_user == comment.user %>
+			<%= link_to "delete",comment_path(comment.id),:method=>"delete",:remote=>true,:class=>"pull-right" %>
+		<% end %>
 	</td>
 </tr>
-<tr>
-	<td id="replies_<%= comment.id %>">
-		<%= render "comments/replies",:comment=>comment %>
-	</td>
+<tr id="replies_<%= comment.id %>">
+	<%= render "comments/replies", :comment=> comment %>
 </tr>
 
-<script type="text/javascript">
-	$(".reply").click(function(){
-		$(this).parents(".reply-block").find(".reply-form").toggle();
-	})
-</script>

@@ -1,3 +1,19 @@
 .reply{
 	float: right;
 }
+.article h3{
+	text-align: center;
+}
+.article h4{
+	color: orange;
+}
+ol{
+
+	list-style: none;
+}
+.actions{
+	text-align: right;
+}
+.reply-form{
+	display: none;
+}

@@ -1,17 +1,15 @@
-<table class="reply-block">
-	<tr>
-		<td><a href="#-" class="reply">Reply</a></td>
-	</tr>
-	<% comment.children.each  do |reply| %>
-		<tr id="reply_<%= reply.id %>" class="replies" >
-			<td>
-				<%= reply.body %>	
-			</td>
-		</tr>
-	<% end %>	
-	<tr>
-		<td style="display:none;" class="reply-form">
+<td colspan="2">
+	<ol class="reply-block">
+		<li>
+			<a href="#-" class="reply pull-right auth">Reply</a>
+		</li>
+		<% comment.children.each  do |reply| %>
+			<li id="reply_<%= reply.id %>" class="replies">
+				<a href="#-"><%= reply.user.full_name %></a>&nbsp;<%= reply.body %>	
+			</li>
+		<% end %>
+		<li class="reply-form">
 			<%= render "comments/reply_form", :comment=> comment %>
-		</td>
-	</tr>
-</table>
+		</li>
+	</ol>
+</td>
